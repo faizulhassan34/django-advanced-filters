@@ -135,6 +135,8 @@ class AdvancedFilterQueryForm(CleanWhiteSpacesMixin, forms.Form):
 
         if query_data['value'] is None:
             query_data['operator'] = "isnull"
+        elif query_data['value'] is True and operator == 'isnull':
+            query_data['operator'] = "isnull"
         elif query_data['value'] is True:
             query_data['operator'] = "istrue"
         elif query_data['value'] is False:
